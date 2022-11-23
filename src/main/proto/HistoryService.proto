@@ -1,5 +1,6 @@
 syntax = "proto3";
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/any.proto";
 import "ProductService.proto";
 option java_multiple_files = true;
 package com.sep3yg9.assignment2.grpc.protobuf.history;

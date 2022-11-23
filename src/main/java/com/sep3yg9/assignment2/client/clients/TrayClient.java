@@ -1,6 +1,7 @@
-package client.clients;
+package com.sep3yg9.assignment2.client.clients;
 
 import com.google.protobuf.Empty;
+import com.google.protobuf.Int32Value;
 import com.google.protobuf.Int64Value;
 import com.sep3yg9.assignment2.client.Main;
 import com.sep3yg9.assignment2.grpc.protobuf.parts.PartTray;
@@ -83,10 +84,10 @@ public class TrayClient
     System.out.println("------------------------------------------");
 
     System.out.println("Type in tray id: ");
-    long trayId = Long.parseLong(scanner.nextLine());
+    int trayId = Integer.parseInt(scanner.nextLine());
 
     System.out.println("Type in part id: ");
-    long partId = Long.parseLong(scanner.nextLine());
+    int partId = Integer.parseInt(scanner.nextLine());
 
     Tray tray = stub.putOnTray(PartTray.newBuilder().setTrayId(trayId).setPartId(partId).build());
     System.out.println("------------------------------------------");
@@ -100,9 +101,9 @@ public class TrayClient
     System.out.println("------------------------------------------");
 
     System.out.println("Type in tray id: ");
-    long trayId = Long.parseLong(scanner.nextLine());
+    int trayId = Integer.parseInt(scanner.nextLine());
 
-    Tray tray = stub.trayFinished(Int64Value.newBuilder().setValue(trayId).build());
+    Tray tray = stub.trayFinished(Int32Value.newBuilder().setValue(trayId).build());
     System.out.println("------------------------------------------");
     System.out.println(tray + "\n");
     trayManagement();

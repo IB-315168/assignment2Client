@@ -1,6 +1,7 @@
-package client.clients;
+package com.sep3yg9.assignment2.client.clients;
 
 import com.google.protobuf.Empty;
+import com.google.protobuf.Int32Value;
 import com.google.protobuf.Int64Value;
 import com.google.protobuf.StringValue;
 import com.sep3yg9.assignment2.client.Main;
@@ -91,10 +92,10 @@ public class ProductClient
     System.out.println("------------------------------------------");
 
     System.out.println("Type in product id: ");
-    long productId = Long.parseLong(scanner.nextLine());
+    int productId = Integer.parseInt(scanner.nextLine());
 
     System.out.println("Type in part id: ");
-    long partId = Long.parseLong(scanner.nextLine());
+    int partId = Integer.parseInt(scanner.nextLine());
 
     Product product = stub.putIntoProduct(PartProduct.newBuilder().setProductId(productId).setPartId(partId).build());
     System.out.println("------------------------------------------");
@@ -108,9 +109,10 @@ public class ProductClient
     System.out.println("------------------------------------------");
 
     System.out.println("Type in product id: ");
-    long productId = Long.parseLong(scanner.nextLine());
+    int productId = Integer.parseInt(scanner.nextLine());
 
-    Product product = stub.markProductAsFinished(Int64Value.newBuilder().setValue(productId).build());
+    Product product = stub.markProductAsFinished(
+        Int32Value.newBuilder().setValue(productId).build());
     System.out.println("------------------------------------------");
     System.out.println(product + "\n");
     productManagement();

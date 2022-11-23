@@ -1,4 +1,4 @@
-package client;
+package com.sep3yg9.assignment2.client;
 
 import com.sep3yg9.assignment2.client.clients.HistoryClient;
 import com.sep3yg9.assignment2.client.clients.PartClient;

@@ -1,4 +1,4 @@
-package client.clients;
+package com.sep3yg9.assignment2.client.clients;
 
 import com.google.protobuf.Empty;
 import com.sep3yg9.assignment2.client.Main;
@@ -58,7 +58,7 @@ public class PartClient
     double weight = Double.parseDouble(scanner.nextLine());
 
     System.out.println("Type in animal registration number: ");
-    long animalId = Long.parseLong(scanner.nextLine());
+    int animalId = Integer.parseInt(scanner.nextLine());
 
     System.out.println("Type in part type: ");
     String type = scanner.nextLine();

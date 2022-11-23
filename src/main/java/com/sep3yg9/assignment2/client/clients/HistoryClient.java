@@ -1,5 +1,6 @@
-package client.clients;
+package com.sep3yg9.assignment2.client.clients;
 
+import com.google.protobuf.Int32Value;
 import com.google.protobuf.Int64Value;
 import com.google.protobuf.StringValue;
 import com.sep3yg9.assignment2.client.Main;
@@ -59,9 +60,10 @@ public class HistoryClient
     System.out.println("------------------------------------------");
 
     System.out.println("Type in products id: ");
-    long id = Long.parseLong(scanner.nextLine());
+    int id = Integer.parseInt(scanner.nextLine());
 
-    AnimalList animalList = stub.getProductsAnimals(Int64Value.newBuilder().setValue(id).build());
+    AnimalList animalList = stub.getProductsAnimals(
+        Int32Value.newBuilder().setValue(id).build());
     System.out.println("------------------------------------------");
     System.out.println("Animals for product " + id);
     System.out.println(animalList + "\n");
@@ -74,9 +76,9 @@ public class HistoryClient
     System.out.println("------------------------------------------");
 
     System.out.println("Type in animals id: ");
-    long id = Long.parseLong(scanner.nextLine());
+    int id = Integer.parseInt(scanner.nextLine());
 
-    ProductList productList = stub.getAnimalsProducts(Int64Value.newBuilder().setValue(id).build());
+    ProductList productList = stub.getAnimalsProducts(Int32Value.newBuilder().setValue(id).build());
     System.out.println("------------------------------------------");
     System.out.println("Products of animal regNo: " + id);
     System.out.println(productList + "\n");

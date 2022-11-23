@@ -1,0 +1,36 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "PartService.proto";
+import "TrayService.proto";
+option java_multiple_files = true;
+package com.sep3yg9.assignment2.grpc.protobuf.products;
+
+message Product {
+  int32 id = 1;
+  string productType = 2;
+  bool finished = 3;
+  repeated protobuf.parts.PartTray toc = 4;
+  repeated protobuf.parts.Part parts = 5;
+}
+
+message ProductList {
+  repeated Product products = 1;
+}
+
+message PartProduct {
+  int32 partId = 1;
+  int32 productId = 2;
+}
+
+message AnimalList {
+  repeated int32 animalIds = 1;
+}
+
+service ProductService {
+  rpc GetAllFinishedTrays(google.protobuf.Empty) returns (com.sep3yg9.assignment2.grpc.protobuf.trays.TrayList);
+  rpc GetAllProducts(google.protobuf.Empty) returns (ProductList);
+  rpc CreateProduct(google.protobuf.StringValue) returns (Product);
+  rpc PutIntoProduct(PartProduct) returns (Product);
+  rpc MarkProductAsFinished(google.protobuf.Int32Value) returns (Product);
+}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+option java_multiple_files = true;
+package com.sep3yg9.assignment2.grpc.protobuf.parts;
+
+message Part {
+  int32 id = 1;
+  int32 animal_id = 2;
+  string type = 3;
+  double weight = 4;
+}
+
+message PartList {
+  repeated Part parts = 1;
+}
+
+message PartTray {
+  int32 partId = 1;
+  int32 trayId = 2;
+}
+
+service PartService
+{
+  rpc CreatePart(Part) returns (Part);
+  rpc GetAllRemainingParts(google.protobuf.Empty) returns (PartList);
+}

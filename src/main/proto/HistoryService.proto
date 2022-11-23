@@ -1,0 +1,10 @@
+syntax = "proto3";
+import "google/protobuf/wrappers.proto";
+import "ProductService.proto";
+option java_multiple_files = true;
+package com.sep3yg9.assignment2.grpc.protobuf.history;
+
+service HistoryService {
+  rpc GetProductsAnimals(google.protobuf.Int32Value) returns (protobuf.products.AnimalList);
+  rpc GetAnimalsProducts(google.protobuf.Int32Value) returns (protobuf.products.ProductList);
+}
